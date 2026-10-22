@@ -10,7 +10,7 @@ No audio is recorded, nothing is sent anywhere: the extension makes no network r
 
 The Chrome Web Store version is in review. Until then, install it from here.
 
-*Русская версия — ниже.*
+**English** · [Русский](#peacedone-recorder-ru) · [Українська](#peacedone-recorder-ua)
 
 ## Download
 **[Releases](../../releases/latest) → `Peacedone-Recorder-v0.5.0.zip`** — the extension, ready to load in Chrome.
@@ -88,4 +88,44 @@ Peacedone ведёт заметки на созвонах: берёт **живы
 ## Удаление
 - Расширение: `chrome://extensions` → Peacedone Recorder → **Удалить**.
 - Помощник папок (если ставили): удалите папку `%LOCALAPPDATA%\Peacedone` и выполните в командной строке:
+  `reg delete "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.peacedone.recorder" /f`
+
+---
+
+# Peacedone Recorder (UA)
+
+Peacedone веде нотатки під час дзвінків: бере **живі субтитри** Google Meet, Microsoft Teams (веб) і Zoom (веб-клієнт)
+та зберігає транскрипт — хто що сказав і коли — файлом `.md` на вашому комп'ютері. Звук не записується,
+нічого нікуди не надсилається: розширення не робить мережевих запитів.
+
+## Завантажити
+**[Releases](../../releases/latest) → `Peacedone-Recorder-v0.5.0.zip`.** Версія в Chrome Web Store поки на перевірці.
+
+## Встановлення (2 хвилини)
+1. Розпакуйте архів у постійне місце (наприклад, `Документи\Peacedone-Recorder`) — Chrome завантажує розширення звідти.
+2. Відкрийте `chrome://extensions` і увімкніть **Режим розробника** (праворуч угорі).
+3. **Завантажити розпаковане розширення** → виберіть папку `Peacedone-Recorder`.
+4. Закріпіть: значок пазла на панелі → шпилька біля **Peacedone Recorder**.
+
+Працює в Chrome, Edge і Brave на Windows. Оновлення не автоматичні: завантажте новий реліз і замініть папку.
+
+## Як користуватися
+1. Заходьте на дзвінок **через браузер** (застосунки Zoom/Teams для комп'ютера розширення не бачить — оберіть «Join from your browser»).
+2. На сторінці дзвінка з'явиться Peacedone: **Record this call?** → **● Start recording**. Або значок на панелі → **● Start**.
+3. Оберіть **🌐 мову дзвінка** — Peacedone сам перемкне на неї субтитри (вони розпізнають лише мову, встановлену в дзвінку).
+4. Вийдіть із дзвінка або натисніть **■ Stop** — транскрипт збережеться.
+
+**Куди зберігається:** за замовчуванням `Завантаження › Peacedone`. Щоб зберігати в будь-яку папку, натисніть **Choose folder**:
+першого разу Peacedone запропонує **Install helper** — маленький інсталятор на ~10 секунд, без прав адміністратора
+(якщо Chrome запитає — «Зберегти»). Далі відкриється звичайне вікно вибору папки Windows, вибір запам'ятовується.
+
+## Важливо
+- **Попередьте співрозмовників**, що ведете нотатки за субтитрами. У багатьох країнах запис або розшифрування розмови
+  без згоди заборонені; за використання транскриптів відповідаєте ви.
+- Субтитри — це машинне розпізнавання мовлення: імена, цифри й терміни можуть бути розпізнані неправильно.
+- Транскрипти залишаються на вашому комп'ютері. Не пересилайте їх без згоди учасників.
+
+## Видалення
+- Розширення: `chrome://extensions` → Peacedone Recorder → **Видалити**.
+- Помічник папок (якщо встановлювали): видаліть папку `%LOCALAPPDATA%\Peacedone` і виконайте в командному рядку:
   `reg delete "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.peacedone.recorder" /f`
