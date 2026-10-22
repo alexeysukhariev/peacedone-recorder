@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Peacedone Recorder — Settings</title>
+<link rel="stylesheet" href="../ui/ui.css">
+</head>
+<body class="options">
+<div class="page">
+  <div class="page-hero">
+    <div id="mascotSlot"></div>
+    <div>
+      <h1>Peacedone Recorder</h1>
+      <p class="muted">I take notes for you: the live captions of Google Meet, Microsoft Teams web and Zoom web become a transcript in the folder you choose. Nothing leaves this computer — no network requests.</p>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>Transcript folder</h2>
+    <p class="muted small">You choose the folder in the popup for every call (recent folders are remembered). Chrome can't write outside Downloads by itself, so a tiny local helper writes the files — it only puts <code>.md</code>/<code>.json</code> into the folder you chose and never touches the network.</p>
+    <div class="folder-name">Folder helper</div>
+    <div class="small" id="helperState">Checking…</div>
+    <label class="field">
+      <span>Last used folder</span>
+      <div class="folder-input">
+        <input id="pathLabel" type="text" spellcheck="false" placeholder="C:\Users\you\Documents\Call notes">
+        <button class="secondary" id="test">Test write</button>
+      </div>
+    </label>
+    <div class="row-actions"><button class="secondary" id="flush" hidden>Copy pending transcripts</button></div>
+    <p class="small" id="folderMsg"></p>
+    <p class="muted small">Each call: <code>YYYY-MM-DD_HHMM_&lt;platform&gt;_&lt;tag&gt;.md</code> — the readable transcript — plus <code>raw/…json</code> (raw lines for tools). If the folder can't be written, both go to <code>Downloads/Peacedone/</code>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Recording</h2>
+    <label class="field">
+      <span>Your name in transcripts <em>(replaces “You”)</em></span>
+      <input id="myName" type="text">
+    </label>
+    <label class="check"><input type="checkbox" id="autoStart"> Start automatically when I join a call</label>
+    <label class="check"><input type="checkbox" id="autoCaptions"> Turn on the platform's captions automatically</label>
+    <label class="check"><input type="checkbox" id="showIndicator"> Show the small “Transcript · N lines” pill on the call page</label>
+    <p class="muted small">Auto-captions only clicks a control that clearly says it turns captions <i>on</i> (Meet: CC; Teams: More → Language and speech → Turn on live captions; Zoom: CC). If it can't, the warning “Captions are off” stays on the page — without captions there is nothing to record.</p>
+  </section>
+
+  <section class="card">
+    <h2>Before the call</h2>
+    <ul class="muted">
+      <li>Join from the <b>browser</b>. The desktop Zoom and Teams apps are invisible to the extension.</li>
+      <li>Turn on captions: Meet — CC button (or C); Teams — More (···) → Language and speech → Turn on live captions; Zoom web — CC / Show Captions, open “View full transcript” for speaker names.</li>
+      <li>Set the caption language to the language of the call.</li>
+      <li>Tell the others you keep a transcript from the live captions for your notes.</li>
+    </ul>
+  </section>
+</div>
+<script src="../src/selectors.js"></script>
+<script src="../src/merge.js"></script>
+<script src="../src/folder.js"></script>
+<script src="../src/save.js"></script>
+<script src="../ui/mascot.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

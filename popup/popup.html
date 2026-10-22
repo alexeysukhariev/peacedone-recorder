@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Peacedone Recorder</title>
+<link rel="stylesheet" href="../ui/ui.css">
+</head>
+<body class="popup">
+  <button class="icon-btn" id="settings" title="Settings">⚙</button>
+
+  <section class="hero" id="status">
+    <div id="mascotSlot"></div>
+    <div class="bubble">
+      <div class="bubble-title"><span class="dot" id="dot"></span><span id="statusText">Hi!</span></div>
+      <div class="bubble-meta" id="meta"></div>
+    </div>
+  </section>
+
+  <!-- Not a call page -->
+  <main id="nocall" hidden>
+    <p class="lead" id="nocallTitle">Open a call</p>
+    <p class="muted small" id="nocallText" hidden></p>
+    <div class="services" id="services">
+      <button class="secondary" data-open="https://meet.google.com/">Meet</button>
+      <button class="secondary" data-open="https://teams.microsoft.com/">Teams</button>
+      <button class="secondary" data-open="https://app.zoom.us/wc/join">Zoom</button>
+    </div>
+    <button class="primary wide" id="reloadTab" hidden>Reload this tab</button>
+  </main>
+
+  <!-- Call page -->
+  <main id="call" hidden>
+    <button class="secondary wide" id="enableCaps" hidden>Turn on captions</button>
+    <button class="secondary wide" id="fixLang" hidden>Fix caption language</button>
+    <p class="small warn-text" id="capsMsg"></p>
+
+    <div class="field">
+      <button class="folder-btn" id="pick" title="Choose a folder">
+        <span class="folder-ico">📁</span>
+        <span class="folder-text"><b id="folderName">Choose folder</b><small id="folderPath"></small></span>
+      </button>
+      <input id="folder" type="hidden">
+      <span class="hint" id="folderHint"></span>
+      <div class="helper-card" id="helperCard" hidden>
+        <b>Save to any folder</b>
+        <p id="helperText">Peacedone needs a tiny helper for that. One time, about 10 seconds.</p>
+        <button class="danger wide" id="installHelper">Install helper</button>
+        <button class="link small" id="helperLater">Not now — keep Downloads</button>
+      </div>
+      <button class="primary wide" id="fixCopy" hidden>Remove this old copy</button>
+    </div>
+    <label class="field lang-field">
+      <span class="lang-ico">🌐</span>
+      <select id="lang" title="Language of the call — captions only recognise this language"></select>
+    </label>
+    <div class="field">
+      <input id="tag" type="text" placeholder="Company (optional)" maxlength="80" autocomplete="off">
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="toggle">● Start</button>
+      <button class="secondary" id="save" title="Save now, keep recording" hidden>Save</button>
+    </div>
+    <p class="muted small result" id="result"></p>
+  </main>
+
+  <pre class="diag small" id="diagOut" hidden></pre>
+<script src="../src/selectors.js"></script>
+<script src="../src/merge.js"></script>
+<script src="../src/folder.js"></script>
+<script src="../src/installer.js"></script>
+<script src="../ui/mascot.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

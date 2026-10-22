@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peacedone Recorder — install guide</title>
+<style>
+  :root{--bg:#fbf7f6;--card:#fff;--fg:#16324a;--muted:#5f7a90;--line:#eddedc;--red:#e5383b;--soft:#fdeceb;color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:40px 16px 64px}
+  header{display:flex;align-items:center;gap:20px;margin-bottom:8px}
+  header img{width:120px;height:120px;flex:none;animation:float 3.6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(2%)}50%{transform:translateY(-4%)}}
+  h1{font-size:30px;margin:0;letter-spacing:-.02em}
+  .lead{color:var(--muted);margin:6px 0 0}
+  .lang{margin-left:auto;align-self:flex-start;display:flex;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .lang button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--muted)}
+  .lang button.on{background:var(--red);color:#fff;font-weight:600}
+  h2{font-size:20px;margin:36px 0 12px}
+  ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+  ol.steps>li{counter-increment:s;position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 64px;margin:10px 0}
+  ol.steps>li::before{content:counter(s);position:absolute;left:18px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:grid;place-items:center}
+  b{font-weight:650}
+  code,kbd{font:14px/1.3 Consolas,monospace;background:var(--soft);border-radius:6px;padding:2px 6px}
+  .note{background:var(--soft);border-radius:14px;padding:14px 18px;margin:14px 0}
+  .warn{background:#fff6e5;border:1px solid #f5b544;color:#6b4300;border-radius:14px;padding:14px 18px;margin:14px 0}
+  .muted{color:var(--muted)}
+  ul{padding-left:22px} li{margin:4px 0}
+  [hidden]{display:none!important}
+  @media (max-width:560px){header{flex-wrap:wrap}header img{width:84px;height:84px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/mascot/idle.png" alt="Peacedone">
+    <div>
+      <h1>Peacedone Recorder</h1>
+      <p class="lead" data-en>Takes notes on your calls from the live captions — saved as a file on your computer.</p>
+      <p class="lead" data-ru>Ведёт заметки на созвонах по живым субтитрам и сохраняет их файлом на вашем компьютере.</p>
+    </div>
+    <div class="lang"><button id="bEn">English</button><button id="bRu">Русский</button></div>
+  </header>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <section data-en>
+    <h2>Install — 2 minutes</h2>
+    <ol class="steps">
+      <li><b>Unzip</b> the archive and move the <code>Peacedone-Recorder</code> folder somewhere permanent, e.g. <code>Documents</code>. Chrome loads the extension from this folder — don't delete it later.</li>
+      <li>In Chrome open <code>chrome://extensions</code> (paste it into the address bar).</li>
+      <li>Switch on <b>Developer mode</b> — the toggle in the top-right corner.</li>
+      <li>Click <b>Load unpacked</b> and select the <code>Peacedone-Recorder</code> folder (the one that contains <code>manifest.json</code>).</li>
+      <li><b>Pin it:</b> click the puzzle icon 🧩 next to the address bar → pin <b>Peacedone Recorder</b>. The red fluffy Peacedone appears in the toolbar.</li>
+    </ol>
+    <p class="muted">Works in Chrome, Edge and Brave on Windows. If Chrome shows “Disable developer mode extensions”, just close that message.</p>
+
+    <h2>Record a call</h2>
+    <ol class="steps">
+      <li>Join the call <b>in the browser</b>: Google Meet, Microsoft Teams (web) or Zoom (web client). Desktop Zoom/Teams apps are invisible to extensions — choose “Join from your browser”.</li>
+      <li>Peacedone pops up on the call page: <b>Record this call?</b> Pick the <b>🌐 language of the call</b> and press <b>● Start recording</b>. (Or click Peacedone in the toolbar → <b>● Start</b>.)</li>
+      <li>Captions and their language are switched on automatically. While recording, Peacedone writes in his notepad.</li>
+      <li>Leave the call or press <b>■ Stop</b> — the transcript is saved.</li>
+    </ol>
+    <div class="note"><b>Why the language matters:</b> captions only recognise the language set in the call. If people speak Russian while the call is set to English, the text turns into nonsense. Peacedone switches the call's caption language to the one you choose, and warns you if the captions look like the wrong language.</div>
+
+    <h2>Where the files go</h2>
+    <ul>
+      <li>By default: <b>Downloads › Peacedone</b>. Each call is one readable file <code>YYYY-MM-DD_HHMM_platform_company.md</code> (plus raw data in <code>raw/</code>).</li>
+      <li><b>Any folder you like:</b> click <b>📁 Choose folder</b>. The first time Peacedone offers a one-time <b>Install helper</b> — a tiny setup file (about 10 seconds, no admin rights). If Chrome or Windows asks, choose <b>Keep</b> / <b>Run</b>. Then the normal Windows folder dialog opens.</li>
+    </ul>
+
+    <h2>Please note</h2>
+    <div class="warn"><b>Tell the other people on the call</b> that you keep notes from the live captions — e.g. “Just so you know, I keep notes from the live captions.” In many countries recording or transcribing without consent is not allowed. Transcripts stay on your computer; don't share them without the participants' consent.</div>
+    <ul>
+      <li>No audio is recorded and nothing is sent anywhere — the extension makes no network requests.</li>
+      <li>Captions are machine speech recognition: names, numbers and terms can be misheard.</li>
+    </ul>
+
+    <h2>Remove</h2>
+    <ul>
+      <li>Extension: <code>chrome://extensions</code> → Peacedone Recorder → <b>Remove</b>.</li>
+      <li>Folder helper (if installed): delete the folder <code>%LOCALAPPDATA%\Peacedone</code> and run in a command prompt:<br><code>reg delete "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.peacedone.recorder" /f</code></li>
+    </ul>
+  </section>
+
+  <!-- ===================== РУССКИЙ ===================== -->
+  <section data-ru>
+    <h2>Установка — 2 минуты</h2>
+    <ol class="steps">
+      <li><b>Распакуйте</b> архив и положите папку <code>Peacedone-Recorder</code> в постоянное место, например в <code>Документы</code>. Chrome загружает расширение из этой папки — потом её не удаляйте.</li>
+      <li>Откройте в Chrome адрес <code>chrome://extensions</code> (вставьте его в адресную строку).</li>
+      <li>Включите <b>Режим разработчика</b> — переключатель в правом верхнем углу.</li>
+      <li>Нажмите <b>Загрузить распакованное</b> и выберите папку <code>Peacedone-Recorder</code> (ту, где лежит <code>manifest.json</code>).</li>
+      <li><b>Закрепите:</b> значок пазла 🧩 рядом с адресной строкой → булавка у <b>Peacedone Recorder</b>. На панели появится красный пушистый Peacedone.</li>
+    </ol>
+    <p class="muted">Работает в Chrome, Edge и Brave на Windows. Если Chrome покажет «Отключите расширения в режиме разработчика» — просто закройте сообщение.</p>
+
+    <h2>Как записать звонок</h2>
+    <ol class="steps">
+      <li>Зайдите на звонок <b>через браузер</b>: Google Meet, Microsoft Teams (веб) или Zoom (веб-клиент). Приложения Zoom/Teams для компьютера расширение не видит — выберите «Join from your browser».</li>
+      <li>На странице звонка всплывёт Peacedone: <b>Record this call?</b> Выберите <b>🌐 язык звонка</b> и нажмите <b>● Start recording</b>. (Или значок Peacedone на панели → <b>● Start</b>.)</li>
+      <li>Субтитры и их язык включатся сами. Пока идёт запись, Peacedone пишет в блокнот.</li>
+      <li>Выйдите из звонка или нажмите <b>■ Stop</b> — транскрипт сохранится.</li>
+    </ol>
+    <div class="note"><b>Почему важен язык:</b> субтитры распознают только язык, выставленный в звонке. Если говорят по-русски, а в звонке стоит английский, текст превращается в бессмыслицу. Peacedone сам переключает язык субтитров на выбранный вами и предупредит, если субтитры похожи на другой язык.</div>
+
+    <h2>Куда сохраняются файлы</h2>
+    <ul>
+      <li>По умолчанию: <b>Загрузки › Peacedone</b>. Каждый звонок — один читаемый файл <code>ГГГГ-ММ-ДД_ЧЧММ_платформа_компания.md</code> (сырые данные — в <code>raw/</code>).</li>
+      <li><b>В любую папку:</b> нажмите <b>📁 Choose folder</b>. В первый раз Peacedone предложит <b>Install helper</b> — маленький установщик на ~10 секунд, без прав администратора. Если Chrome или Windows спросят — «Сохранить» / «Выполнить». Потом откроется обычное окно выбора папки Windows.</li>
+    </ul>
+
+    <h2>Важно</h2>
+    <div class="warn"><b>Предупредите собеседников</b>, что ведёте заметки по субтитрам — например: «Чтобы вы знали, я веду заметки по субтитрам». Во многих странах запись или расшифровка без согласия запрещена. Транскрипты остаются на вашем компьютере — не пересылайте их без согласия участников.</div>
+    <ul>
+      <li>Звук не записывается, ничего никуда не отправляется — расширение не делает сетевых запросов.</li>
+      <li>Субтитры — машинное распознавание речи: имена, цифры и термины могут быть услышаны неверно.</li>
+    </ul>
+
+    <h2>Удаление</h2>
+    <ul>
+      <li>Расширение: <code>chrome://extensions</code> → Peacedone Recorder → <b>Удалить</b>.</li>
+      <li>Помощник папок (если ставили): удалите папку <code>%LOCALAPPDATA%\Peacedone</code> и выполните в командной строке:<br><code>reg delete "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.peacedone.recorder" /f</code></li>
+    </ul>
+  </section>
+</div>
+<script>
+  const show = (l) => {
+    document.querySelectorAll('[data-en]').forEach((e) => (e.hidden = l !== 'en'));
+    document.querySelectorAll('[data-ru]').forEach((e) => (e.hidden = l !== 'ru'));
+    document.getElementById('bEn').classList.toggle('on', l === 'en');
+    document.getElementById('bRu').classList.toggle('on', l === 'ru');
+    document.documentElement.lang = l;
+  };
+  document.getElementById('bEn').onclick = () => show('en');
+  document.getElementById('bRu').onclick = () => show('ru');
+  show(/^(ru|uk|be)/i.test(navigator.language || '') ? 'ru' : 'en');
+</script>
+</body>
+</html>
